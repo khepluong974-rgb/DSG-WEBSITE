@@ -118,5 +118,150 @@ document.getElementById("result").innerText =
 });
 </script>
 
+<style>
+.dsg-services {
+  padding: 25px 15px;
+  margin: 20px auto;
+  max-width: 900px;
+  color: #fff;
+  background: linear-gradient(145deg,#071b38,#063b78);
+  border-radius: 18px;
+}
+.dsg-services h2 {
+  text-align: center;
+  color: #48c8ff;
+}
+.dsg-service-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+}
+.dsg-service-card {
+  background: #102e50;
+  border: 1px solid #238bda;
+  border-radius: 13px;
+  padding: 17px 10px;
+  text-align: center;
+}
+.dsg-service-card strong {
+  display: block;
+  margin: 8px 0;
+  color: #55d5ff;
+}
+.dsg-order {
+  margin-top: 22px;
+  display: grid;
+  gap: 12px;
+}
+.dsg-order input,.dsg-order select,
+.dsg-order textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #55bfff;
+  border-radius: 9px;
+  background: #fff;
+  color: #111;
+}
+.dsg-order button {
+  padding: 14px;
+  border: 0;
+  border-radius: 10px;
+  color: white;
+  background: #087bea;
+  font-weight: bold;
+}
+@media(max-width:380px) {
+  .dsg-service-grid {grid-template-columns:1fr;}
+}
+</style>
+
+<section class="dsg-services" id="dsg-services">
+  <h2>🔥 DỊCH VỤ TIKTOK ĐSG</h2>
+  <p style="text-align:center">Chọn dịch vụ bạn muốn đặt</p>
+
+  <div class="dsg-service-grid">
+    <div class="dsg-service-card">
+      ❤️
+      <strong>TikTok Tim</strong>
+      <small>Tăng lượt tim video</small>
+    </div>
+    <div class="dsg-service-card">
+      👥
+      <strong>TikTok Follow</strong>
+      <small>Tăng lượt theo dõi</small>
+    </div>
+    <div class="dsg-service-card">
+      ▶️
+      <strong>TikTok View</strong>
+      <small>Tăng lượt xem video</small>
+    </div>
+    <div class="dsg-service-card">
+      💬
+      <strong>TikTok Comment</strong>
+      <small>Tăng bình luận</small>
+    </div>
+  </div>
+
+  <h3>🛒 ĐẶT DỊCH VỤ</h3>
+  <div class="dsg-order">
+    <select id="dsgService">
+      <option value="TikTok Tim">TikTok Tim</option>
+      <option value="TikTok Follow">TikTok Follow</option>
+      <option value="TikTok View">TikTok View</option>
+      <option value="TikTok Comment">TikTok Comment</option>
+    </select>
+
+    <input id="dsgLink" type="url"
+      placeholder="Dán link video hoặc tài khoản TikTok">
+
+    <input id="dsgQuantity" type="number"
+      min="1" placeholder="Số lượng cần đặt">
+
+    <textarea id="dsgNote" rows="3"
+      placeholder="Ghi chú thêm (nếu có)"></textarea>
+
+    <button type="button" onclick="dsgCreateOrder()">
+      GỬI YÊU CẦU ĐẶT DỊCH VỤ
+    </button>
+
+    <textarea id="dsgOrderText" rows="5"
+      readonly placeholder="Thông tin đơn hàng sẽ hiện ở đây"></textarea>
+  </div>
+</section>
+
+<script>
+function dsgCreateOrder() {
+  const service = document.getElementById("dsgService").value;
+  const link = document.getElementById("dsgLink").value.trim();
+  const quantity = document.getElementById("dsgQuantity").value;
+  const note = document.getElementById("dsgNote").value.trim();
+
+  if (!link || !quantity || Number(quantity) < 1) {
+    alert("Vui lòng nhập link TikTok và số lượng!");
+    return;
+  }
+
+  const message =
+    "ĐƠN DỊCH VỤ ĐSG\n" +
+    "Dịch vụ: " + service + "\n" +
+    "Link: " + link + "\n" +
+    "Số lượng: " + quantity + "\n" +
+    "Ghi chú: " + note;
+
+  document.getElementById("dsgOrderText").value = message;
+
+  window.open("https://zalo.me/0349190233", "_blank");
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(message)
+      .then(() => alert("Đã sao chép đơn hàng. Hãy dán vào Zalo để gửi!"))
+      .catch(() => alert("Hãy sao chép nội dung đơn hàng bên dưới và gửi qua Zalo."));
+  } else {
+    alert("Hãy sao chép nội dung đơn hàng bên dưới và gửi qua Zalo.");
+  }
+}
+</script>
+
 </body>
-  </html>
+ </html>
