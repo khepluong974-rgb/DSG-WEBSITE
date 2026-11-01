@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -5,364 +6,120 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ĐSG SHOP VIP PRO MAX</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#071426;color:white;font-family:Arial,sans-serif}
-header{text-align:center;padding:28px 12px;background:#0b2342;border-bottom:2px solid #00cfff}
-header h1{color:#00d9ff;margin:0}
-nav{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;padding:15px}
-a{color:#65ddff;text-decoration:none}
-.hero{text-align:center;padding:40px 15px;background:linear-gradient(135deg,#092a55,#071426)}
-section{padding:25px 15px;max-width:900px;margin:auto}
-h2{color:#00d9ff}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
-.card{background:#102747;padding:20px;border:1px solid #17618c;border-radius:14px}
-input,select,textarea{width:100%;padding:13px;margin:8px 0;border:1px solid #28749a;border-radius:8px;background:#071426;color:white}
-button,.btn{display:inline-block;background:#00cfff;color:#001522;padding:13px 20px;border:0;border-radius:9px;font-weight:bold;cursor:pointer}
-button{width:100%;margin-top:10px}
-footer{text-align:center;background:#0b2342;padding:25px;color:#b9d9ee}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#07111f;color:#fff}
+header{background:#0c1d35;padding:18px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1765b9}
+.logo{font-size:25px;font-weight:bold;color:#38aaff}
+.menu-btn{font-size:25px;background:none;color:white;border:0}
+nav{display:none;background:#102542;padding:12px}
+nav.show{display:block}
+nav a{display:block;color:white;text-decoration:none;padding:13px;border-bottom:1px solid #29415e}
+.hero{padding:42px 20px;text-align:center;background:linear-gradient(135deg,#092b55,#0879c9)}
+.hero h1{font-size:29px;margin-bottom:12px}
+.hero p{color:#d4eaff;line-height:1.6}
+.btn{display:inline-block;background:#159bff;color:white;padding:12px 20px;border-radius:9px;text-decoration:none;border:0;font-weight:bold;margin-top:16px}
+main{padding:20px;max-width:850px;margin:auto}
+h2{color:#42b4ff;margin:25px 0 15px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.card{background:#10223b;padding:18px;border:1px solid #21476c;border-radius:13px}
+.card h3{margin-bottom:8px;color:#70c7ff}
+.card p{font-size:13px;color:#c1d4e8;line-height:1.5}
+.service{margin-top:12px}
+input,select,textarea{width:100%;padding:13px;margin-top:10px;border-radius:8px;border:1px solid #315579;background:#0b1a2d;color:white}
+button{cursor:pointer}
+footer{text-align:center;padding:25px;color:#91a9c4;background:#0c1d35;margin-top:30px}
+@media(max-width:420px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
 <header>
-<h1>ĐSG SHOP</h1>
-<p>VIP PRO MAX • DIGITAL SERVICES</p>
+<div class="logo">ĐSG SHOP</div>
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
 </header>
-
-<nav>
-<a href="#home">Trang chủ</a>
-<a href="#services">Dịch vụ</a>
-<a href="#order">Đặt dịch vụ</a>
-<a href="#support">Hỗ trợ</a>
+<nav id="menu">
+<a href="#home">🏠 Trang chủ</a>
+<a href="#tiktok">🎵 Buff TikTok</a>
+<a href="#facebook">📘 Buff Facebook</a>
+<a href="#game">🎮 Shop ACC Game</a>
+<a href="#order">🛒 Đặt đơn</a>
+<a href="#history">📋 Lịch sử đơn</a>
+<a href="#payment">💳 Thanh toán QR</a>
+<a href="#support">🎧 Hỗ trợ</a>
 </nav>
-
-<div class="hero" id="home">
-<h2>CHÀO MỪNG ĐẾN VỚI ĐSG</h2>
-<p>Nền tảng dịch vụ và hỗ trợ mạng xã hội.</p>
-<a class="btn" href="#order">ĐẶT DỊCH VỤ</a>
-</div>
-
-<section id="services">
-<h2>🚀 DỊCH VỤ</h2>
-<div class="cards">
-<div class="card">
-<h3>Facebook</h3>
-<p>Tư vấn phát triển trang và nội dung Facebook.</p>
-</div>
-<div class="card">
-<h3>TikTok</h3>
-<p>Tư vấn nội dung và phát triển kênh TikTok.</p>
-</div>
-<div class="card">
-<h3>Thiết kế</h3>
-<p>Thiết kế ảnh, banner và hình ảnh quảng cáo.</p>
-</div>
-</div>
+<section class="hero" id="home">
+<h1>ĐSG SHOP VIP PRO MAX</h1>
+<p>Hệ thống dịch vụ mạng xã hội và giải trí trực tuyến.</p>
+<a class="btn" href="#order">KHÁM PHÁ DỊCH VỤ</a>
 </section>
-
-<section id="order">
-<h2>🛒 ĐẶT DỊCH VỤ</h2>
+<main>
+<h2>⚡ Dịch vụ nổi bật</h2>
+<div class="grid">
+<div class="card" id="tiktok">
+<h3>🎵 TikTok</h3>
+<p>Follow, tim, lượt xem và tương tác TikTok.</p>
+<a class="btn" href="#order">Đặt dịch vụ</a>
+</div>
+<div class="card" id="facebook">
+<h3>📘 Facebook</h3>
+<p>Follow, like và các dịch vụ tương tác Facebook.</p>
+<a class="btn" href="#order">Đặt dịch vụ</a>
+</div>
+<div class="card" id="game">
+<h3>🎮 Free Fire</h3>
+<p>Khu vực mua bán tài khoản Free Fire.</p>
+</div>
 <div class="card">
-<form id="orderForm">
-<label>Chọn dịch vụ</label>
+<h3>🎮 Liên Quân</h3>
+<p>Khu vực mua bán tài khoản Liên Quân.</p>
+</div>
+</div>
+<section class="service" id="order">
+<h2>🛒 Gửi yêu cầu đặt đơn</h2>
+<div class="card">
+<form onsubmit="sendOrder(event)">
 <select id="service" required>
-<option value="">-- Chọn dịch vụ --</option>
-<option>Facebook</option>
-<option>TikTok</option>
-<option>Thiết kế</option>
-<option>Tư vấn khác</option>
+<option value="">Chọn dịch vụ</option>
+<option>Buff TikTok</option>
+<option>Buff Facebook</option>
 </select>
-
-<label>Link trang cá nhân hoặc nội dung</label>
-<input id="link" type="url" placeholder="Dán đường link tại đây" required>
-
-<label>Số lượng hoặc yêu cầu</label>
-<input id="quantity" placeholder="Nhập số lượng / yêu cầu" required>
-
-<label>Ghi chú</label>
-<textarea id="note" rows="3" placeholder="Thông tin thêm (nếu có)"></textarea>
-
-<button type="submit">GỬI YÊU CẦU ĐẶT DỊCH VỤ</button>
+<input id="link" type="url" placeholder="Dán liên kết bài viết hoặc tài khoản" required>
+<input id="quantity" type="number" min="1" placeholder="Số lượng" required>
+<button class="btn" type="submit">GỬI YÊU CẦU QUA ZALO</button>
 </form>
-<p id="result"></p>
 </div>
 </section>
-
-<section id="support">
-<h2>📞 HỖ TRỢ</h2>
+<section id="history">
+<h2>📋 Lịch sử đơn hàng</h2>
+<div class="card" id="historyList">Chưa có đơn hàng được lưu trên thiết bị này.</div>
+</section>
+<section id="payment">
+<h2>💳 Thanh toán QR</h2>
 <div class="card">
-<p>Liên hệ ĐSG để được tư vấn dịch vụ.</p>
-<a class="btn" href="https://zalo.me/0349190233">LIÊN HỆ ZALO</a>
+<p>Thông tin thanh toán sẽ được cập nhật khi cấu hình cổng thanh toán.</p>
 </div>
 </section>
-
-<footer>
-© 2026 ĐSG SHOP VIP PRO MAX
-</footer>
-
+<section id="support">
+<h2>🎧 Hỗ trợ khách hàng</h2>
+<div class="card">
+<p>Liên hệ Zalo để được hỗ trợ đặt dịch vụ.</p>
+<a class="btn" href="https://zalo.me/0349190233">CHAT ZALO</a>
+</div>
+</section>
+</main>
+<footer>© 2026 ĐSG SHOP VIP PRO MAX</footer>
 <script>
-document.getElementById("orderForm").addEventListener("submit",function(e){
+function toggleMenu(){
+document.getElementById('menu').classList.toggle('show');
+}
+function sendOrder(e){
 e.preventDefault();
-const msg =
-"YÊU CẦU ĐẶT DỊCH VỤ ĐSG\n"+
-"Dịch vụ: "+document.getElementById("service").value+"\n"+
-"Đường link: "+document.getElementById("link").value+"\n"+
-"Số lượng/yêu cầu: "+document.getElementById("quantity").value+"\n"+
-"Ghi chú: "+document.getElementById("note").value;
-
-if(navigator.clipboard){
-navigator.clipboard.writeText(msg).catch(()=>{});
-}
-document.getElementById("result").innerText =
-"Đã tạo nội dung đơn hàng. Nội dung đã được sao chép nếu trình duyệt cho phép. Hãy mở Zalo và gửi cho shop.";
-});
-</script>
-
-<style>
-.dsg-services {
-  padding: 25px 15px;
-  margin: 20px auto;
-  max-width: 900px;
-  color: #fff;
-  background: linear-gradient(145deg,#071b38,#063b78);
-  border-radius: 18px;
-}
-.dsg-services h2 {
-  text-align: center;
-  color: #48c8ff;
-}
-.dsg-service-grid {
-  display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: 12px;
-}
-.dsg-service-card {
-  background: #102e50;
-  border: 1px solid #238bda;
-  border-radius: 13px;
-  padding: 17px 10px;
-  text-align: center;
-}
-.dsg-service-card strong {
-  display: block;
-  margin: 8px 0;
-  color: #55d5ff;
-}
-.dsg-order {
-  margin-top: 22px;
-  display: grid;
-  gap: 12px;
-}
-.dsg-order input,.dsg-order select,
-.dsg-order textarea {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 13px;
-  border: 1px solid #55bfff;
-  border-radius: 9px;
-  background: #fff;
-  color: #111;
-}
-.dsg-order button {
-  padding: 14px;
-  border: 0;
-  border-radius: 10px;
-  color: white;
-  background: #087bea;
-  font-weight: bold;
-}
-@media(max-width:380px) {
-  .dsg-service-grid {grid-template-columns:1fr;}
-}
-</style>
-
-<section class="dsg-services" id="dsg-services">
-  <h2>🔥 DỊCH VỤ TIKTOK ĐSG</h2>
-  <p style="text-align:center">Chọn dịch vụ bạn muốn đặt</p>
-
-  <div class="dsg-service-grid">
-    <div class="dsg-service-card">
-      ❤️
-      <strong>TikTok Tim</strong>
-      <small>Tăng lượt tim video</small>
-    </div>
-    <div class="dsg-service-card">
-      👥
-      <strong>TikTok Follow</strong>
-      <small>Tăng lượt theo dõi</small>
-    </div>
-    <div class="dsg-service-card">
-      ▶️
-      <strong>TikTok View</strong>
-      <small>Tăng lượt xem video</small>
-    </div>
-    <div class="dsg-service-card">
-      💬
-      <strong>TikTok Comment</strong>
-      <small>Tăng bình luận</small>
-    </div>
-  </div>
-
-  <h3>🛒 ĐẶT DỊCH VỤ</h3>
-  <div class="dsg-order">
-    <select id="dsgService">
-      <option value="TikTok Tim">TikTok Tim</option>
-      <option value="TikTok Follow">TikTok Follow</option>
-      <option value="TikTok View">TikTok View</option>
-      <option value="TikTok Comment">TikTok Comment</option>
-    </select>
-
-    <input id="dsgLink" type="url"
-      placeholder="Dán link video hoặc tài khoản TikTok">
-
-    <input id="dsgQuantity" type="number"
-      min="1" placeholder="Số lượng cần đặt">
-
-    <textarea id="dsgNote" rows="3"
-      placeholder="Ghi chú thêm (nếu có)"></textarea>
-
-    <button type="button" onclick="dsgCreateOrder()">
-      GỬI YÊU CẦU ĐẶT DỊCH VỤ
-    </button>
-
-    <textarea id="dsgOrderText" rows="5"
-      readonly placeholder="Thông tin đơn hàng sẽ hiện ở đây"></textarea>
-  </div>
-</section>
-
-<script>
-function dsgCreateOrder() {
-  const service = document.getElementById("dsgService").value;
-  const link = document.getElementById("dsgLink").value.trim();
-  const quantity = document.getElementById("dsgQuantity").value;
-  const note = document.getElementById("dsgNote").value.trim();
-
-  if (!link || !quantity || Number(quantity) < 1) {
-    alert("Vui lòng nhập link TikTok và số lượng!");
-    return;
-  }
-
-  const message =
-    "ĐƠN DỊCH VỤ ĐSG\n" +
-    "Dịch vụ: " + service + "\n" +
-    "Link: " + link + "\n" +
-    "Số lượng: " + quantity + "\n" +
-    "Ghi chú: " + note;
-
-  document.getElementById("dsgOrderText").value = message;
-
-  window.open("https://zalo.me/0349190233", "_blank");
-
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(message)
-      .then(() => alert("Đã sao chép đơn hàng. Hãy dán vào Zalo để gửi!"))
-      .catch(() => alert("Hãy sao chép nội dung đơn hàng bên dưới và gửi qua Zalo."));
-  } else {
-    alert("Hãy sao chép nội dung đơn hàng bên dưới và gửi qua Zalo.");
-  }
+const service=document.getElementById('service').value;
+const link=document.getElementById('link').value;
+const quantity=document.getElementById('quantity').value;
+const msg="YÊU CẦU ĐẶT ĐƠN ĐSG%0A Dịch vụ: "+encodeURIComponent(service)+"%0A Liên kết: "+encodeURIComponent(link)+"%0A Số lượng: "+quantity;
+window.open("https://zalo.me/0349190233","_blank");
+alert("Đã chuẩn bị thông tin đơn hàng. Hãy gửi nội dung này cho shop qua Zalo: "+decodeURIComponent(msg));
 }
 </script>
-
-<style>
-.login-box {
-  max-width: 380px;
-  margin: 25px auto;
-  padding: 25px;
-  background: #071b38;
-  border: 1px solid #168cff;
-  border-radius: 18px;
-  color: white;
-  text-align: center;
-  box-shadow: 0 0 18px #087bff55;
-}
-.login-box h2 {color:#36aaff;}
-.login-box input {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 13px;
-  margin: 8px 0;
-  border: 1px solid #168cff;
-  border-radius: 9px;
-  background: #102c50;
-  color: white;
-}
-.login-box button {
-  width: 100%;
-  padding: 13px;
-  margin-top: 10px;
-  border: 0;
-  border-radius: 9px;
-  background: #087bff;
-  color: white;
-  font-weight: bold;
-}
-.login-box a {color:#55baff; cursor:pointer;}
-</style>
-
-
-<div class="login-box">
-  <h2>ĐSG VIP</h2>
-  <h3 id="formTitle">ĐĂNG NHẬP</h3>
-
-  <input id="username" placeholder="Tên tài khoản">
-  <input id="password" type="password" placeholder="Mật khẩu">
-
-  <button type="button" onclick="dsgLogin()">ĐĂNG NHẬP</button>
-  <p id="message"></p>
-
-  <p id="switchText">
-    Chưa có tài khoản?
-    <a onclick="dsgRegister()">Đăng ký ngay</a>
-  </p>
-</div>
-
-<script>
-function dsgRegister() {
-  const u = document.getElementById("username").value.trim();
-  const p = document.getElementById("password").value;
-
-  if (!u || !p) {
-    document.getElementById("message").innerText =
-      "Hãy nhập tên tài khoản và mật khẩu!";
-    return;
-  }
-
-  localStorage.setItem("dsg_user", u);
-  localStorage.setItem("dsg_pass", p);
-
-  document.getElementById("message").innerText =
-    "Đăng ký thành công! Hãy đăng nhập.";
-
-  document.getElementById("formTitle").innerText = "ĐĂNG NHẬP";
-}
-
-function dsgLogin() {
-  const u = document.getElementById("username").value.trim();
-  const p = document.getElementById("password").value;
-
-  if (
-    u === localStorage.getItem("dsg_user") &&
-    p === localStorage.getItem("dsg_pass") &&
-    u !== ""
-  ) {
-    document.getElementById("message").innerText =
-      "Đăng nhập thành công! Chào mừng đến ĐSG VIP.";
-  } else {
-    document.getElementById("message").innerText =
-      "Sai tài khoản hoặc mật khẩu!";
-  }
-}
-</script>
-
-  <h2>ĐSG VIP</h2>
-  <h3 id="formTitle">ĐĂNG NHẬP</h3>
-  <input id="username" placeholder="Tên tài khoản">
-  <input id="password" type="password" placeholder="Mật khẩu">
- <button type="button">ĐĂNG NHẬP</button>
-  <p>Chưa có tài khoản?
-    <a onclick="document.getElementById('formTitle').innerText='ĐĂNG KÝ'">Đăng ký ngay</a>
-  </p>
-</div>
-
 </body>
- </html>
+</html>
