@@ -51,6 +51,53 @@ footer{text-align:center;padding:25px;color:#91a9c4;background:#0c1d35;margin-to
 <p>Hệ thống dịch vụ mạng xã hội và giải trí trực tuyến.</p>
 <a class="btn" href="#order">KHÁM PHÁ DỊCH VỤ</a>
 </section>
+
+<section id="shop-acc">
+<h2>🎮 SHOP ACC GAME ĐSG</h2>
+
+<div class="grid">
+<div class="card">
+<h3>🔥 SHOP ACC FREE FIRE</h3>
+<p>Kho tài khoản Free Fire hấp dẫn.</p>
+<p>Giá bán: Liên hệ xem giá</p>
+<a class="btn" href="#order-acc">Xem và đặt mua</a>
+</div>
+
+<div class="card">
+<h3>⚔️ SHOP ACC LIÊN QUÂN</h3>
+<p>Kho tài khoản Liên Quân Mobile.</p>
+<p>Giá bán: Liên hệ xem giá</p>
+<a class="btn" href="#order-acc">Xem và đặt mua</a>
+</div>
+</div>
+
+<div class="card service" id="order-acc">
+<h2>🛒 ĐẶT MUA TÀI KHOẢN</h2>
+<form onsubmit="buyAcc(event)">
+<select id="game" required>
+<option value="">Chọn game</option>
+<option>Free Fire</option>
+<option>Liên Quân Mobile</option>
+</select>
+<input id="accid" placeholder="Mã tài khoản muốn mua" required>
+<input id="buyer" placeholder="Tên người mua" required>
+<input id="phone" type="tel" placeholder="Số điện thoại" required>
+<button class="btn" type="submit">GỬI ĐƠN MUA</button>
+</form>
+</div>
+</section>
+<script>
+function buyAcc(e){
+e.preventDefault();
+const msg="ĐƠN MUA ACC ĐSG\nGame: "+document.getElementById("game").value+
+"\nMã acc: "+document.getElementById("accid").value+
+"\nTên: "+document.getElementById("buyer").value+
+"\nSĐT: "+document.getElementById("phone").value;
+window.open("https://zalo.me/0349190233","_blank");
+alert("Đã tạo nội dung đơn mua. Vui lòng gửi thông tin cho shop qua Zalo.");
+}
+</script>
+
 <main>
 <h2>⚡ Dịch vụ nổi bật</h2>
 <div class="grid">
