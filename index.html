@@ -9,32 +9,43 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:#090909;color:white;font-family:Arial}
-header{text-align:center;padding:27px 10px;background:linear-gradient(120deg,#180000,#970000,#180000);border-bottom:2px solid red}
-.logo{font-size:30px;font-weight:900;color:#ff3838;text-shadow:0 0 15px red}
+header{text-align:center;padding:25px 10px;background:linear-gradient(120deg,#180000,#970000,#180000);border-bottom:2px solid red}
+.logo{font-size:29px;font-weight:900;color:#ff3838;text-shadow:0 0 15px red}
 header p{color:#ffd36b;margin-top:9px;letter-spacing:2px;font-size:11px}
 .hero{text-align:center;padding:35px 12px;background:radial-gradient(circle,#590000,#090909 75%)}
 .hero h1{color:#ff3636;font-size:30px}
 .hero p{color:#ddd;line-height:1.7;margin:13px}
-nav{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;padding:12px;background:#171717}
-nav a{color:white;text-decoration:none;border:1px solid #8e2020;border-radius:7px;padding:9px;font-size:12px}
-section{padding:27px 13px;max-width:950px;margin:auto}
+.btn{display:inline-block;background:linear-gradient(90deg,#a50000,#fa3333);color:white;padding:11px 15px;border:0;border-radius:7px;text-decoration:none;font-weight:bold;cursor:pointer}
+nav{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;padding:12px;background:#171717;position:sticky;top:0;z-index:10;border-bottom:1px solid #702020}
+nav a,nav button{color:white;text-decoration:none;border:1px solid #8e2020;border-radius:7px;padding:10px;font-size:12px;background:#171717;cursor:pointer}
+.menu-toggle{background:#a50000!important;font-weight:bold}
+#menuExtra{display:none;flex-basis:100%;justify-content:center;flex-wrap:wrap;gap:8px}
+#menuExtra.show{display:flex}
+section{padding:27px 13px;max-width:950px;margin:auto;scroll-margin-top:80px}
 h2{text-align:center;color:#ff4444;margin-bottom:20px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:13px}
 .card{background:linear-gradient(145deg,#262626,#160000);border:1px solid #802020;border-radius:12px;padding:18px 12px;text-align:center}
 .card h3{color:#ff5555;margin:12px 0}
 .card p{color:#ccc;font-size:13px;line-height:1.6;margin-bottom:12px}
-.emoji{font-size:32px}
-.btn{display:inline-block;background:linear-gradient(90deg,#a50000,#fa3333);color:white;padding:11px 15px;border:0;border-radius:7px;text-decoration:none;font-weight:bold;cursor:pointer}
+.card .btn{margin-top:5px}
+.brand-icon{width:38px;height:38px;display:block;margin:0 auto 8px}
 .gold{color:#ffd36b}
 form{max-width:500px;margin:auto;background:#181818;padding:18px;border:1px solid #862020;border-radius:12px}
 input,select,textarea{width:100%;padding:12px;margin:7px 0;background:#090909;color:white;border:1px solid #555;border-radius:7px}
 form button{width:100%;margin-top:10px}
-#notice{text-align:center;color:#ffd36b;margin-top:12px;line-height:1.5}
+#notice,#paynotice{text-align:center;color:#ffd36b;margin-top:12px;line-height:1.5}
 .qr{text-align:center;background:#171717;padding:18px;border:1px solid #9b2525;border-radius:12px;max-width:440px;margin:auto}
 .qr img{width:100%;max-width:300px;border-radius:10px;background:white;padding:5px}
 .support{display:grid;gap:12px;max-width:450px;margin:auto}
 .support a{text-align:center}
+.small-note{font-size:12px;color:#aaa;line-height:1.6;margin-top:12px;text-align:center}
 footer{text-align:center;padding:25px;background:#180000;border-top:1px solid red;color:#aaa;line-height:2}
+.modal{display:none;position:fixed;inset:0;background:#000d;z-index:30;align-items:center;justify-content:center;padding:15px}
+.modal.show{display:flex}
+.modal-box{background:#191919;border:1px solid #a22;border-radius:12px;padding:20px;width:100%;max-width:420px;position:relative}
+.modal-box h2{margin-bottom:12px}
+.close{position:absolute;right:13px;top:10px;background:none;color:white;border:0;font-size:25px;cursor:pointer}
+@media(max-width:480px){.logo{font-size:25px}nav{justify-content:center}}
 </style>
 </head>
 <body>
@@ -52,71 +63,131 @@ HỆ THỐNG DỊCH VỤ MẠNG XÃ HỘI</p>
 </div>
 
 <nav>
+<a href="#home">Trang chủ</a>
 <a href="#services">Dịch vụ</a>
 <a href="#facebook">Facebook</a>
 <a href="#tiktok">TikTok</a>
-<a href="#games">Shop ACC</a>
-<a href="#payment">Thanh toán</a>
-<a href="#order">Đặt đơn</a>
-<a href="#support">Hỗ trợ</a>
+<button class="menu-toggle" onclick="toggleMenu()">☰ MENU</button>
+<div id="menuExtra">
+<a href="#payment">💰 Nạp tiền</a>
+<a href="#account" onclick="openModal('login')">🔐 Đăng nhập</a>
+<a href="#account" onclick="openModal('register')">📝 Đăng ký</a>
+<a href="#order">🛒 Đặt đơn</a>
+<a href="#support">☎️ Hỗ trợ</a>
+</div>
 </nav>
-
-<section id="support">
-<h2>☎️ HỖ TRỢ KHÁCH HÀNG</h2>
-<div class="support">
-<a class="btn" href="https://zalo.me/0349190233">💬 ZALO HỖ TRỢ 1 - 0349190233</a>
-<a class="btn" href="https://zalo.me/0345291621">💬 ZALO HỖ TRỢ 2 - 0345291621</a>
-</div>
-</section>
-
-<section id="payment">
-<h2>💳 THANH TOÁN QR</h2>
-<div class="qr">
-<h3 class="gold">VIETCOMBANK</h3>
-<p class="gold">Quét mã QR để thanh toán</p>
-<img src="qr-thanh-toan.jpg" alt="Mã QR thanh toán" onerror="this.style.display='none';document.getElementById('qrerror').style.display='block'">
-<p id="qrerror" style="display:none;color:#ff7777">Chưa tải ảnh QR lên GitHub. Vui lòng bổ sung file qr-thanh-toan.jpg</p>
-<p class="gold">STK: 1072852788</p>
-<p>Chủ TK: LUONG THI KHEP</p>
-</div>
-</section>
 
 <section id="services">
 <h2>🔥 FULL DỊCH VỤ MXH</h2>
 <div class="grid">
-<div class="card"><div class="emoji">📘</div><h3>Facebook Full</h3><p>Like • Follow • Comment • Share</p><a href="#facebook" class="btn">Xem dịch vụ</a></div>
-<div class="card"><div class="emoji">🎵</div><h3>TikTok Full</h3><p>Tim • Follow • View • Comment • Share</p><a href="#tiktok" class="btn">Xem dịch vụ</a></div>
-<div class="card"><div class="emoji">🌐</div><h3>Full MXH</h3><p>Hỗ trợ các nền tảng mạng xã hội</p><a href="#order" class="btn">Liên hệ</a></div>
+
+<div class="card">
+<svg class="brand-icon" viewBox="0 0 40 40">
+<circle cx="20" cy="20" r="19" fill="#1877F2"/>
+<path d="M23 8h-4c-4 0-6 3-6 7v3H9v5h4v10h6V23h4l1-5h-5v-3c0-1 1-2 2-2h3z" fill="white"/>
+</svg>
+<h3>Facebook Full</h3>
+<p>Like • Follow • Comment • Share<br>Hỗ trợ đình chỉ 180 ngày • Dame FB</p>
+<a href="#facebook" class="btn">Xem dịch vụ</a>
+</div>
+
+<div class="card">
+<svg class="brand-icon" viewBox="0 0 40 40">
+<rect width="40" height="40" rx="10" fill="#050505"/>
+<path d="M23 6v18a6 6 0 1 1-5-6v5a2 2 0 1 0 1 2V6h5c0 4 2 6 6 7v5c-3 0-5-1-7-3z" fill="#25F4EE" transform="translate(-2 0)"/>
+<path d="M25 5v18a6 6 0 1 1-5-6v5a2 2 0 1 0 1 2V5h5c0 4 2 6 6 7v5c-3 0-5-1-7-3z" fill="#FE2C55"/>
+</svg>
+<h3>TikTok Full</h3>
+<p>Tim • Follow • View • Comment • Share</p>
+<a href="#tiktok" class="btn">Xem dịch vụ</a>
+</div>
+
+<div class="card">
+<div style="font-size:34px">🛡️</div>
+<h3>Hỗ trợ kháng nghị</h3>
+<p>Hỗ trợ LIVE • Kháng nghị tài khoản</p>
+<a href="#appeal" class="btn">Xem hỗ trợ</a>
+</div>
+
 </div>
 </section>
 
 <section id="facebook">
-<h2>📘 FACEBOOK FULL</h2>
+<h2>FACEBOOK – FULL DỊCH VỤ</h2>
 <div class="grid">
+
 <div class="card"><h3>Buff Like</h3><p>Tăng lượt thích bài viết</p><button class="btn" onclick="chon('Facebook - Like')">Đặt dịch vụ</button></div>
+
 <div class="card"><h3>Buff Follow</h3><p>Tăng người theo dõi</p><button class="btn" onclick="chon('Facebook - Follow')">Đặt dịch vụ</button></div>
+
 <div class="card"><h3>Buff Comment</h3><p>Tăng bình luận</p><button class="btn" onclick="chon('Facebook - Comment')">Đặt dịch vụ</button></div>
+
 <div class="card"><h3>Buff Share</h3><p>Tăng lượt chia sẻ</p><button class="btn" onclick="chon('Facebook - Share')">Đặt dịch vụ</button></div>
+
+<div class="card"><h3>Hỗ trợ đình chỉ 180 ngày</h3><p>Hỗ trợ tư vấn và xử lý kháng nghị</p><button class="btn" onclick="chon('Facebook - Hỗ trợ đình chỉ 180 ngày')">Liên hệ</button></div>
+
+<div class="card"><h3>Dame Facebook</h3><p>Dịch vụ hỗ trợ Facebook</p><button class="btn" onclick="chon('Facebook - Dame FB')">Liên hệ</button></div>
+
 </div>
 </section>
 
 <section id="tiktok">
-<h2>🎵 TIKTOK FULL</h2>
+<h2>TIKTOK – FULL DỊCH VỤ</h2>
 <div class="grid">
+
 <div class="card"><h3>Buff Tim</h3><p>Tăng lượt yêu thích</p><button class="btn" onclick="chon('TikTok - Tim')">Đặt dịch vụ</button></div>
-<div class="card"><h3>Buff Follow</h3><p>Tăng theo dõi</p><button class="btn" onclick="chon('TikTok - Follow')">Đặt dịch vụ</button></div>
+
+<div class="card"><h3>Buff Follow</h3><p>Tăng người theo dõi</p><button class="btn" onclick="chon('TikTok - Follow')">Đặt dịch vụ</button></div>
+
 <div class="card"><h3>Buff View</h3><p>Tăng lượt xem video</p><button class="btn" onclick="chon('TikTok - View')">Đặt dịch vụ</button></div>
+
 <div class="card"><h3>Buff Comment</h3><p>Tăng bình luận</p><button class="btn" onclick="chon('TikTok - Comment')">Đặt dịch vụ</button></div>
+
 <div class="card"><h3>Buff Share</h3><p>Tăng lượt chia sẻ</p><button class="btn" onclick="chon('TikTok - Share')">Đặt dịch vụ</button></div>
+
 </div>
 </section>
 
-<section id="games">
-<h2>🎮 SHOP ACC GAME</h2>
+<section id="appeal">
+<h2>🛡️ HỖ TRỢ KHÁNG NGHỊ</h2>
 <div class="grid">
-<div class="card"><div class="emoji">🔥</div><h3>Free Fire</h3><p>Shop tài khoản Free Fire</p><button class="btn" onclick="chon('ACC Free Fire')">Quan tâm</button></div>
-<div class="card"><div class="emoji">⚔️</div><h3>Liên Quân</h3><p>Shop tài khoản Liên Quân</p><button class="btn" onclick="chon('ACC Liên Quân')">Quan tâm</button></div>
+<div class="card">
+<div class="emoji">📹</div>
+<h3>Kháng nghị LIVE</h3>
+<p>Hỗ trợ tư vấn kháng nghị và hướng dẫn gửi yêu cầu xem xét LIVE.</p>
+<button class="btn" onclick="chon('Hỗ trợ kháng nghị LIVE')">Yêu cầu hỗ trợ</button>
 </div>
+<div class="card">
+<div class="emoji">📩</div>
+<h3>Hỗ trợ kháng nghị</h3>
+<p>Tư vấn quy trình kháng nghị tài khoản và nội dung.</p>
+<button class="btn" onclick="chon('Hỗ trợ kháng nghị')">Yêu cầu hỗ trợ</button>
+</div>
+</div>
+</section>
+
+<section id="payment">
+<h2>💳 NẠP TIỀN – THANH TOÁN QR</h2>
+<div class="qr">
+<h3 class="gold">VIETCOMBANK</h3>
+<p class="gold">Quét mã QR để chuyển khoản</p>
+<img src="qr-thanh-toan.jpg" alt="Mã QR thanh toán" onerror="this.style.display='none';document.getElementById('qrerror').style.display='block'">
+<p id="qrerror" style="display:none;color:#ff7777">Chưa có ảnh QR. Hãy tải ảnh lên GitHub với tên qr-thanh-toan.jpg</p>
+<br>
+<p class="gold">STK: 1072852788</p>
+<p>Chủ TK: LUONG THI KHEP</p>
+<p class="small-note">Vui lòng kiểm tra đúng thông tin trước khi chuyển khoản.</p>
+</div>
+
+<form onsubmit="xacNhanNap(event)" style="margin-top:18px">
+<h3 class="gold" style="text-align:center">GỬI YÊU CẦU NẠP TIỀN</h3>
+<input id="napten" placeholder="Tên người chuyển khoản" required>
+<input id="napso" type="number" min="1000" placeholder="Số tiền muốn nạp (VNĐ)" required>
+<input id="napnoidung" placeholder="Nội dung chuyển khoản" required>
+<button class="btn" type="submit">TÔI ĐÃ CHUYỂN KHOẢN</button>
+<div id="paynotice"></div>
+<p class="small-note">Nạp tiền được xác nhận thủ công sau khi kiểm tra giao dịch. Website chưa tự động cộng tiền vào tài khoản.</p>
+</form>
 </section>
 
 <section id="order">
@@ -129,14 +200,15 @@ HỆ THỐNG DỊCH VỤ MẠNG XÃ HỘI</p>
 <option>Facebook - Follow</option>
 <option>Facebook - Comment</option>
 <option>Facebook - Share</option>
+<option>Facebook - Hỗ trợ đình chỉ 180 ngày</option>
+<option>Facebook - Dame FB</option>
 <option>TikTok - Tim</option>
 <option>TikTok - Follow</option>
 <option>TikTok - View</option>
 <option>TikTok - Comment</option>
 <option>TikTok - Share</option>
-<option>Full MXH</option>
-<option>ACC Free Fire</option>
-<option>ACC Liên Quân</option>
+<option>Hỗ trợ kháng nghị LIVE</option>
+<option>Hỗ trợ kháng nghị</option>
 </select>
 <input id="link" placeholder="Link bài viết hoặc tài khoản">
 <input id="soluong" type="number" min="1" placeholder="Số lượng">
@@ -146,6 +218,36 @@ HỆ THỐNG DỊCH VỤ MẠNG XÃ HỘI</p>
 </form>
 </section>
 
+<section id="support">
+<h2>☎️ HỖ TRỢ KHÁCH HÀNG</h2>
+<div class="support">
+<a class="btn" href="https://zalo.me/0349190233">💬 ZALO HỖ TRỢ 1 - 0349190233</a>
+<a class="btn" href="https://zalo.me/0345291621">💬 ZALO HỖ TRỢ 2 - 0345291621</a>
+</div>
+</section>
+
+<div class="modal" id="account">
+<div class="modal-box">
+<button class="close" onclick="closeModal()">×</button>
+<div id="loginBox">
+<h2>🔐 ĐĂNG NHẬP</h2>
+<p class="small-note">Chức năng tài khoản cần được kết nối máy chủ trước khi sử dụng.</p>
+<input placeholder="Tên đăng nhập" disabled>
+<input placeholder="Mật khẩu" type="password" disabled>
+<button class="btn" style="width:100%" disabled>ĐĂNG NHẬP</button>
+<p class="small-note">Chưa có hệ thống xác thực tài khoản. Vui lòng liên hệ hỗ trợ.</p>
+</div>
+<div id="registerBox" style="display:none">
+<h2>📝 ĐĂNG KÝ</h2>
+<p class="small-note">Chức năng đăng ký cần kết nối máy chủ để bảo vệ thông tin tài khoản.</p>
+<input placeholder="Tên đăng nhập" disabled>
+<input placeholder="Mật khẩu" type="password" disabled>
+<button class="btn" style="width:100%" disabled>ĐĂNG KÝ</button>
+<p class="small-note">Liên hệ Zalo hỗ trợ để được hướng dẫn.</p>
+</div>
+</div>
+</div>
+
 <footer>
 <strong>👑 ĐSG VIP PRO MAX</strong><br>
 RED EDITION • © 2026<br>
@@ -153,10 +255,25 @@ Cảm ơn quý khách đã ghé thăm!
 </footer>
 
 <script>
+function toggleMenu(){
+document.getElementById('menuExtra').classList.toggle('show');
+}
+
+function openModal(type){
+document.getElementById('account').classList.add('show');
+document.getElementById('loginBox').style.display=type==='login'?'block':'none';
+document.getElementById('registerBox').style.display=type==='register'?'block':'none';
+}
+
+function closeModal(){
+document.getElementById('account').classList.remove('show');
+}
+
 function chon(dv){
 document.getElementById('dichvu').value=dv;
 document.getElementById('order').scrollIntoView({behavior:'smooth'});
 }
+
 function guiDon(e){
 e.preventDefault();
 let don={
@@ -177,6 +294,26 @@ e.target.reset();
 document.getElementById('notice').textContent='Không thể lưu yêu cầu. Hãy liên hệ hỗ trợ.';
 }
 }
+
+function xacNhanNap(e){
+e.preventDefault();
+let nap={
+ten:document.getElementById('napten').value,
+soTien:document.getElementById('napso').value,
+noiDung:document.getElementById('napnoidung').value,
+ngay:new Date().toLocaleString('vi-VN')
+};
+try{
+let ds=JSON.parse(localStorage.getItem('dsg_deposits')||'[]');
+ds.push(nap);
+localStorage.setItem('dsg_deposits',JSON.stringify(ds));
+document.getElementById('paynotice').textContent='Đã ghi nhận yêu cầu trên trình duyệt. Hãy gửi ảnh giao dịch qua Zalo để được kiểm tra thủ công.';
+e.target.reset();
+}catch(err){
+document.getElementById('paynotice').textContent='Không thể lưu yêu cầu. Vui lòng liên hệ Zalo.';
+}
+}
 </script>
+
 </body>
 </html>
