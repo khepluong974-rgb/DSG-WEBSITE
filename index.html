@@ -3,498 +3,180 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ĐSG ICE WORLD - VIP PRO MAX</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ĐSG VIP PRO MAX</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-
 html{scroll-behavior:smooth}
-
-body{
-font-family:Arial,sans-serif;
-color:#effaff;
-background:
-radial-gradient(ellipse at 15% 5%,#145d91 0%,transparent 38%),
-radial-gradient(ellipse at 85% 40%,#104b78 0%,transparent 40%),
-linear-gradient(145deg,#020914,#082a49 50%,#020c1b);
-background-attachment:fixed;
-overflow-x:hidden;
-}
-
-/* TUYẾT RƠI */
-#snow-container{
-position:fixed;
-inset:0;
-overflow:hidden;
-pointer-events:none;
-z-index:40;
-}
-
-.snowflake{
-position:absolute;
-top:-30px;
-color:#e6faff;
-text-shadow:0 0 8px #8be1ff,0 0 18px #42baff;
-animation:snowfall linear infinite;
-}
-
-@keyframes snowfall{
-0%{transform:translateY(-30px) rotate(0deg);opacity:0}
-10%{opacity:.9}
-100%{transform:translateY(110vh) rotate(360deg);opacity:.1}
-}
-
-/* ÁNH SÁNG NỀN */
-body:before{
-content:"";
-position:fixed;
-inset:0;
-pointer-events:none;
-z-index:0;
-background:
-radial-gradient(circle at 10% 20%,#a7edff 0 1px,transparent 3px),
-radial-gradient(circle at 80% 70%,#65d4ff 0 2px,transparent 4px),
-radial-gradient(circle at 45% 90%,#d9faff 0 1px,transparent 3px);
-background-size:130px 150px,190px 210px,160px 180px;
-animation:glow 5s ease-in-out infinite alternate;
-}
-
-@keyframes glow{
-from{opacity:.2}
-to{opacity:.85}
-}
-
-header{
-background:rgba(3,19,37,.94);
-backdrop-filter:blur(12px);
-padding:17px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:sticky;
-top:0;
-z-index:50;
-border-bottom:1px solid #54d7ff;
-box-shadow:0 0 20px #20aaff66;
-}
-
-.logo{
-font-size:24px;
-font-weight:bold;
-color:#8be7ff;
-text-shadow:0 0 15px #27bfff;
-}
-
-.menu-btn{
-font-size:26px;
-background:none;
-color:white;
-border:0;
-cursor:pointer;
-}
-
-nav{
-display:none;
-background:rgba(5,28,52,.97);
-position:sticky;
-top:60px;
-z-index:49;
-padding:10px;
-}
-
-nav.show{display:block}
-
-nav a{
-display:block;
-color:#e4f8ff;
-text-decoration:none;
-padding:13px;
-border-bottom:1px solid #245579;
-}
-
-nav a:hover{
-background:#124b72;
-color:#8ee9ff;
-}
-
-.hero{
-padding:65px 20px;
-text-align:center;
-background:
-radial-gradient(ellipse at center,#1582bd99,transparent 70%),
-linear-gradient(135deg,#06213f,#0c5482);
-border-bottom:1px solid #75dcff;
-box-shadow:0 0 35px #168bdb66;
-position:relative;
-z-index:2;
-overflow:hidden;
-}
-
-.hero:after{
-content:"❄";
-position:absolute;
-font-size:160px;
-color:#b9efff;
-opacity:.08;
-right:5%;
-top:0;
-animation:spin 20s linear infinite;
-}
-
-@keyframes spin{
-to{transform:rotate(360deg)}
-}
-
-.hero h1{
-font-size:30px;
-margin-bottom:15px;
-color:#e8fbff;
-text-shadow:0 0 12px #6bd9ff,0 0 28px #168bdb;
-}
-
-.hero p{
-color:#d6f2ff;
-line-height:1.8;
-}
-
-.btn{
-display:inline-block;
-background:linear-gradient(120deg,#087acb,#55d9ff,#168bd5);
-background-size:200% 200%;
-color:white;
-padding:12px 19px;
-border-radius:10px;
-text-decoration:none;
-border:1px solid #a4ecff;
-font-weight:bold;
-margin-top:12px;
-box-shadow:0 0 15px #35baff99;
-cursor:pointer;
-transition:.3s;
-animation:buttonGlow 4s ease infinite;
-}
-
-@keyframes buttonGlow{
-0%,100%{background-position:0% 50%}
-50%{background-position:100% 50%}
-}
-
-.btn:hover{
-transform:translateY(-3px);
-box-shadow:0 0 25px #5bd9ff;
-}
-
-main{
-padding:20px;
-max-width:900px;
-margin:auto;
-position:relative;
-z-index:2;
-}
-
-section{
-scroll-margin-top:85px;
-margin-bottom:30px;
-}
-
-h2{
-color:#7cddff;
-margin:28px 0 16px;
-text-shadow:0 0 12px #35baff;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:14px;
-}
-
-.card{
-background:linear-gradient(145deg,rgba(17,53,82,.94),rgba(4,22,42,.96));
-padding:18px;
-border:1px solid #54cfff;
-border-radius:15px;
-box-shadow:
-0 0 13px #168bdb55,
-inset 0 0 14px #168bdb22;
-transition:.3s;
-position:relative;
-overflow:hidden;
-}
-
-.card:before{
-content:"";
-position:absolute;
-top:0;
-left:-120%;
-width:70%;
-height:100%;
-background:linear-gradient(90deg,transparent,#c5f5ff22,transparent);
-transform:skewX(-20deg);
-animation:shine 7s infinite;
-}
-
-@keyframes shine{
-0%,65%{left:-120%}
-100%{left:150%}
-}
-
-.card:hover{
-transform:translateY(-5px);
-box-shadow:0 0 25px #35baff99;
-}
-
-.card h3{
-margin-bottom:10px;
-color:#8de4ff;
-}
-
-.card p{
-font-size:14px;
-color:#cce7f8;
-line-height:1.8;
-}
-
-input,select{
-width:100%;
-padding:14px;
-margin-top:11px;
-border-radius:9px;
-border:1px solid #58bce9;
-background:#071a2e;
-color:white;
-outline:none;
-}
-
-input:focus,select:focus{
-border-color:#a4edff;
-box-shadow:0 0 12px #35baff88;
-}
-
-form button{width:100%}
-
-footer{
-text-align:center;
-padding:28px;
-color:#a8d8ee;
-background:#041426;
-border-top:1px solid #54cfff;
-box-shadow:0 0 18px #168bdb44;
-position:relative;
-z-index:2;
-}
-
-@media(max-width:500px){
-.grid{grid-template-columns:1fr}
-.hero h1{font-size:25px}
-}
+body{background:#090909;color:white;font-family:Arial}
+header{text-align:center;padding:27px 10px;background:linear-gradient(120deg,#180000,#970000,#180000);border-bottom:2px solid red}
+.logo{font-size:30px;font-weight:900;color:#ff3838;text-shadow:0 0 15px red}
+header p{color:#ffd36b;margin-top:9px;letter-spacing:2px;font-size:11px}
+.hero{text-align:center;padding:35px 12px;background:radial-gradient(circle,#590000,#090909 75%)}
+.hero h1{color:#ff3636;font-size:30px}
+.hero p{color:#ddd;line-height:1.7;margin:13px}
+nav{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;padding:12px;background:#171717}
+nav a{color:white;text-decoration:none;border:1px solid #8e2020;border-radius:7px;padding:9px;font-size:12px}
+section{padding:27px 13px;max-width:950px;margin:auto}
+h2{text-align:center;color:#ff4444;margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:13px}
+.card{background:linear-gradient(145deg,#262626,#160000);border:1px solid #802020;border-radius:12px;padding:18px 12px;text-align:center}
+.card h3{color:#ff5555;margin:12px 0}
+.card p{color:#ccc;font-size:13px;line-height:1.6;margin-bottom:12px}
+.emoji{font-size:32px}
+.btn{display:inline-block;background:linear-gradient(90deg,#a50000,#fa3333);color:white;padding:11px 15px;border:0;border-radius:7px;text-decoration:none;font-weight:bold;cursor:pointer}
+.gold{color:#ffd36b}
+form{max-width:500px;margin:auto;background:#181818;padding:18px;border:1px solid #862020;border-radius:12px}
+input,select,textarea{width:100%;padding:12px;margin:7px 0;background:#090909;color:white;border:1px solid #555;border-radius:7px}
+form button{width:100%;margin-top:10px}
+#notice{text-align:center;color:#ffd36b;margin-top:12px;line-height:1.5}
+.qr{text-align:center;background:#171717;padding:18px;border:1px solid #9b2525;border-radius:12px;max-width:440px;margin:auto}
+.qr img{width:100%;max-width:300px;border-radius:10px;background:white;padding:5px}
+.support{display:grid;gap:12px;max-width:450px;margin:auto}
+.support a{text-align:center}
+footer{text-align:center;padding:25px;background:#180000;border-top:1px solid red;color:#aaa;line-height:2}
 </style>
 </head>
-
 <body>
 
-<div id="snow-container"></div>
-
 <header>
-<div class="logo">❄ ĐSG SHOP ❄</div>
-<button class="menu-btn" onclick="toggleMenu()">☰</button>
+<div class="logo">👑 ĐSG VIP PRO MAX</div>
+<p>RED EDITION • PREMIUM SERVICE</p>
 </header>
 
-<nav id="menu">
-<a href="#home">🏠 Trang chủ</a>
-<a href="#tiktok">🎵 Dịch vụ TikTok</a>
-<a href="#facebook">📘 Dịch vụ Facebook</a>
-<a href="#game">🎮 Shop ACC Game</a>
-<a href="#order">🛒 Đặt dịch vụ</a>
-<a href="#order-acc">🎮 Mua ACC</a>
-<a href="#history">📋 Lịch sử đơn</a>
-<a href="#support">🎧 Hỗ trợ</a>
+<div class="hero" id="home">
+<h1>ĐSG VIP PRO MAX</h1>
+<p>UY TÍN - CHẤT LƯỢNG - CHUYÊN NGHIỆP<br>
+HỆ THỐNG DỊCH VỤ MẠNG XÃ HỘI</p>
+<a href="#services" class="btn">KHÁM PHÁ DỊCH VỤ</a>
+</div>
+
+<nav>
+<a href="#services">Dịch vụ</a>
+<a href="#facebook">Facebook</a>
+<a href="#tiktok">TikTok</a>
+<a href="#games">Shop ACC</a>
+<a href="#payment">Thanh toán</a>
+<a href="#order">Đặt đơn</a>
+<a href="#support">Hỗ trợ</a>
 </nav>
 
-<section class="hero" id="home">
-<h1>❄ ĐSG SHOP VIP PRO MAX ❄</h1>
-<p>Hệ thống dịch vụ mạng xã hội và shop tài khoản game.</p>
-<p>💎 Đoàn sẽ gày chủ tich cbm 💎</p>
-<a class="btn" href="#order">KHÁM PHÁ DỊCH VỤ</a>
+<section id="support">
+<h2>☎️ HỖ TRỢ KHÁCH HÀNG</h2>
+<div class="support">
+<a class="btn" href="https://zalo.me/0349190233">💬 ZALO HỖ TRỢ 1 - 0349190233</a>
+<a class="btn" href="https://zalo.me/0345291621">💬 ZALO HỖ TRỢ 2 - 0345291621</a>
+</div>
 </section>
 
-<main>
+<section id="payment">
+<h2>💳 THANH TOÁN QR</h2>
+<div class="qr">
+<h3 class="gold">VIETCOMBANK</h3>
+<p class="gold">Quét mã QR để thanh toán</p>
+<img src="qr-thanh-toan.jpg" alt="Mã QR thanh toán" onerror="this.style.display='none';document.getElementById('qrerror').style.display='block'">
+<p id="qrerror" style="display:none;color:#ff7777">Chưa tải ảnh QR lên GitHub. Vui lòng bổ sung file qr-thanh-toan.jpg</p>
+<p class="gold">STK: 1072852788</p>
+<p>Chủ TK: LUONG THI KHEP</p>
+</div>
+</section>
 
-<section id="tiktok">
-<h2>🎵 DỊCH VỤ TIKTOK</h2>
+<section id="services">
+<h2>🔥 FULL DỊCH VỤ MXH</h2>
 <div class="grid">
-<div class="card"><h3>❤️ Tăng Tim TikTok</h3><p>Dịch vụ tăng lượt thích video.</p></div>
-<div class="card"><h3>👥 Tăng Follow TikTok</h3><p>Dịch vụ tăng lượt theo dõi.</p></div>
-<div class="card"><h3>▶️ Tăng View TikTok</h3><p>Dịch vụ tăng lượt xem video.</p></div>
-<div class="card"><h3>💬 Comment TikTok</h3><p>Dịch vụ bình luận video.</p></div>
-<div class="card"><h3>🔁 Share TikTok</h3><p>Dịch vụ tăng lượt chia sẻ.</p></div>
+<div class="card"><div class="emoji">📘</div><h3>Facebook Full</h3><p>Like • Follow • Comment • Share</p><a href="#facebook" class="btn">Xem dịch vụ</a></div>
+<div class="card"><div class="emoji">🎵</div><h3>TikTok Full</h3><p>Tim • Follow • View • Comment • Share</p><a href="#tiktok" class="btn">Xem dịch vụ</a></div>
+<div class="card"><div class="emoji">🌐</div><h3>Full MXH</h3><p>Hỗ trợ các nền tảng mạng xã hội</p><a href="#order" class="btn">Liên hệ</a></div>
 </div>
 </section>
 
 <section id="facebook">
-<h2>📘 DỊCH VỤ FACEBOOK</h2>
+<h2>📘 FACEBOOK FULL</h2>
 <div class="grid">
-<div class="card"><h3>👍 Tăng Like Facebook</h3><p>Tăng lượt thích bài viết.</p></div>
-<div class="card"><h3>👥 Tăng Follow Facebook</h3><p>Tăng lượt theo dõi cá nhân.</p></div>
-<div class="card"><h3>⭐ Like Fanpage</h3><p>Tăng lượt thích trang.</p></div>
-<div class="card"><h3>▶️ View Facebook</h3><p>Tăng lượt xem video.</p></div>
-<div class="card"><h3>💬 Comment Facebook</h3><p>Dịch vụ bình luận bài viết.</p></div>
-<div class="card"><h3>🔁 Share Facebook</h3><p>Tăng lượt chia sẻ bài viết.</p></div>
+<div class="card"><h3>Buff Like</h3><p>Tăng lượt thích bài viết</p><button class="btn" onclick="chon('Facebook - Like')">Đặt dịch vụ</button></div>
+<div class="card"><h3>Buff Follow</h3><p>Tăng người theo dõi</p><button class="btn" onclick="chon('Facebook - Follow')">Đặt dịch vụ</button></div>
+<div class="card"><h3>Buff Comment</h3><p>Tăng bình luận</p><button class="btn" onclick="chon('Facebook - Comment')">Đặt dịch vụ</button></div>
+<div class="card"><h3>Buff Share</h3><p>Tăng lượt chia sẻ</p><button class="btn" onclick="chon('Facebook - Share')">Đặt dịch vụ</button></div>
 </div>
 </section>
 
-<section id="game">
-<h2>🎮 SHOP ACC GAME ĐSG</h2>
+<section id="tiktok">
+<h2>🎵 TIKTOK FULL</h2>
 <div class="grid">
-<div class="card">
-<h3>🔥 FREE FIRE</h3>
-<p>Kho tài khoản Free Fire.</p>
-<p>Giá và thông tin theo mã tài khoản.</p>
-<a class="btn" href="#order-acc">Đặt mua</a>
+<div class="card"><h3>Buff Tim</h3><p>Tăng lượt yêu thích</p><button class="btn" onclick="chon('TikTok - Tim')">Đặt dịch vụ</button></div>
+<div class="card"><h3>Buff Follow</h3><p>Tăng theo dõi</p><button class="btn" onclick="chon('TikTok - Follow')">Đặt dịch vụ</button></div>
+<div class="card"><h3>Buff View</h3><p>Tăng lượt xem video</p><button class="btn" onclick="chon('TikTok - View')">Đặt dịch vụ</button></div>
+<div class="card"><h3>Buff Comment</h3><p>Tăng bình luận</p><button class="btn" onclick="chon('TikTok - Comment')">Đặt dịch vụ</button></div>
+<div class="card"><h3>Buff Share</h3><p>Tăng lượt chia sẻ</p><button class="btn" onclick="chon('TikTok - Share')">Đặt dịch vụ</button></div>
 </div>
-<div class="card">
-<h3>⚔️ LIÊN QUÂN</h3>
-<p>Kho tài khoản Liên Quân Mobile.</p>
-<p>Giá và thông tin theo mã tài khoản.</p>
-<a class="btn" href="#order-acc">Đặt mua</a>
-</div>
+</section>
+
+<section id="games">
+<h2>🎮 SHOP ACC GAME</h2>
+<div class="grid">
+<div class="card"><div class="emoji">🔥</div><h3>Free Fire</h3><p>Shop tài khoản Free Fire</p><button class="btn" onclick="chon('ACC Free Fire')">Quan tâm</button></div>
+<div class="card"><div class="emoji">⚔️</div><h3>Liên Quân</h3><p>Shop tài khoản Liên Quân</p><button class="btn" onclick="chon('ACC Liên Quân')">Quan tâm</button></div>
 </div>
 </section>
 
 <section id="order">
-<h2>🛒 ĐẶT DỊCH VỤ TT / FB</h2>
-<div class="card">
-<form onsubmit="sendOrder(event)">
-<select id="platform" required>
-<option value="">Chọn nền tảng</option>
-<option>TikTok</option>
-<option>Facebook</option>
-</select>
-
-<select id="service" required>
+<h2>🛒 GỬI YÊU CẦU ĐẶT ĐƠN</h2>
+<form onsubmit="guiDon(event)">
+<input id="ten" placeholder="Tên của bạn" required>
+<select id="dichvu" required>
 <option value="">Chọn dịch vụ</option>
-<option>Tăng Tim TikTok</option>
-<option>Tăng Follow TikTok</option>
-<option>Tăng View TikTok</option>
-<option>Tăng Comment TikTok</option>
-<option>Tăng Share TikTok</option>
-<option>Tăng Like Facebook</option>
-<option>Tăng Follow Facebook</option>
-<option>Like Fanpage Facebook</option>
-<option>View Facebook</option>
-<option>Comment Facebook</option>
-<option>Share Facebook</option>
+<option>Facebook - Like</option>
+<option>Facebook - Follow</option>
+<option>Facebook - Comment</option>
+<option>Facebook - Share</option>
+<option>TikTok - Tim</option>
+<option>TikTok - Follow</option>
+<option>TikTok - View</option>
+<option>TikTok - Comment</option>
+<option>TikTok - Share</option>
+<option>Full MXH</option>
+<option>ACC Free Fire</option>
+<option>ACC Liên Quân</option>
 </select>
-
-<input id="link" type="url" placeholder="Dán liên kết bài viết/video" required>
-<input id="quantity" type="number" min="1" placeholder="Số lượng" required>
-<button class="btn" type="submit">GỬI ĐƠN DỊCH VỤ</button>
+<input id="link" placeholder="Link bài viết hoặc tài khoản">
+<input id="soluong" type="number" min="1" placeholder="Số lượng">
+<textarea id="ghichu" placeholder="Ghi chú thêm"></textarea>
+<button class="btn" type="submit">GỬI YÊU CẦU</button>
+<div id="notice"></div>
 </form>
-</div>
 </section>
 
-<section id="order-acc">
-<h2>🎮 ĐẶT MUA ACC GAME</h2>
-<div class="card">
-<form onsubmit="buyAcc(event)">
-<select id="game" required>
-<option value="">Chọn game</option>
-<option>Free Fire</option>
-<option>Liên Quân Mobile</option>
-</select>
-<input id="accid" placeholder="Mã tài khoản muốn mua" required>
-<input id="buyer" placeholder="Tên người mua" required>
-<input id="phone" type="tel" placeholder="Số điện thoại" required>
-<button class="btn" type="submit">GỬI ĐƠN MUA ACC</button>
-</form>
-</div>
-</section>
-
-<section id="history">
-<h2>📋 LỊCH SỬ ĐƠN HÀNG</h2>
-<div class="card" id="historyList">Chưa có đơn hàng.</div>
-</section>
-
-<section id="support">
-<h2>🎧 HỖ TRỢ</h2>
-<div class="card">
-<p>Liên hệ shop để được tư vấn.</p>
-<a class="btn" href="https://zalo.me/0349190233">CHAT ZALO</a>
-</div>
-</section>
-
-</main>
-
-<footer>❄ © 2026 ĐSG SHOP VIP PRO MAX ❄</footer>
+<footer>
+<strong>👑 ĐSG VIP PRO MAX</strong><br>
+RED EDITION • © 2026<br>
+Cảm ơn quý khách đã ghé thăm!
+</footer>
 
 <script>
-function toggleMenu(){
-document.getElementById("menu").classList.toggle("show");
+function chon(dv){
+document.getElementById('dichvu').value=dv;
+document.getElementById('order').scrollIntoView({behavior:'smooth'});
 }
-
-/* TẠO TUYẾT RƠI */
-(function(){
-const container=document.getElementById("snow-container");
-for(let i=0;i<35;i++){
-const snow=document.createElement("span");
-snow.className="snowflake";
-snow.textContent=["❄","❅","✧","·"][i%4];
-snow.style.left=Math.random()*100+"%";
-snow.style.fontSize=(10+Math.random()*15)+"px";
-snow.style.animationDuration=(7+Math.random()*12)+"s";
-snow.style.animationDelay=(-Math.random()*15)+"s";
-container.appendChild(snow);
-}
-})();
-
-function saveOrder(message){
-let orders=JSON.parse(localStorage.getItem("dsgOrders")||"[]");
-orders.unshift({
-message:message,
-date:new Date().toLocaleString("vi-VN")
-});
-localStorage.setItem("dsgOrders",JSON.stringify(orders));
-showHistory();
-}
-
-function showHistory(){
-let orders=JSON.parse(localStorage.getItem("dsgOrders")||"[]");
-let box=document.getElementById("historyList");
-box.innerHTML=orders.length?
-orders.map(o=>"<p style='margin:12px 0;white-space:pre-line'>"+o.date+"<br>"+o.message+"</p>").join(""):
-"Chưa có đơn hàng.";
-}
-
-function sendZalo(message){
-saveOrder(message);
-const url="https://zalo.me/0349190233";
-window.open(url,"_blank");
-alert("Đơn đã lưu trên thiết bị này. Hãy gửi thông tin đơn cho shop qua Zalo.");
-}
-
-function sendOrder(e){
+function guiDon(e){
 e.preventDefault();
-let message="ĐƠN DỊCH VỤ ĐSG\n"+
-"Nền tảng: "+document.getElementById("platform").value+"\n"+
-"Dịch vụ: "+document.getElementById("service").value+"\n"+
-"Link: "+document.getElementById("link").value+"\n"+
-"Số lượng: "+document.getElementById("quantity").value;
-sendZalo(message);
+let don={
+ten:document.getElementById('ten').value,
+dichvu:document.getElementById('dichvu').value,
+link:document.getElementById('link').value,
+soluong:document.getElementById('soluong').value,
+ghichu:document.getElementById('ghichu').value,
+ngay:new Date().toLocaleString('vi-VN')
+};
+try{
+let ds=JSON.parse(localStorage.getItem('dsg_orders')||'[]');
+ds.push(don);
+localStorage.setItem('dsg_orders',JSON.stringify(ds));
+document.getElementById('notice').textContent='Đã lưu yêu cầu trên trình duyệt. Vui lòng liên hệ Zalo để xác nhận đơn.';
+e.target.reset();
+}catch(err){
+document.getElementById('notice').textContent='Không thể lưu yêu cầu. Hãy liên hệ hỗ trợ.';
 }
-
-function buyAcc(e){
-e.preventDefault();
-let message="ĐƠN MUA ACC ĐSG\n"+
-"Game: "+document.getElementById("game").value+"\n"+
-"Mã acc: "+document.getElementById("accid").value+"\n"+
-"Tên: "+document.getElementById("buyer").value+"\n"+
-"SĐT: "+document.getElementById("phone").value;
-sendZalo(message);
 }
-
-showHistory();
 </script>
-
 </body>
 </html>
